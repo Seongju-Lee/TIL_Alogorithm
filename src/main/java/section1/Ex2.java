@@ -6,9 +6,7 @@ public class Ex2 {
 
     public static String solution(String str){
 
-        // 문자열 안에 문자를 변경하기 위해 StringBuffer를 사용하였지만,
-        // 그냥 String s = ""; 이라고 리터럴로 만들어서 만들면 메모리 낭비도 덜 됨.
-        // s += toLowerCase() 이런 식으로 하던가, 아스키코드 이용해서 변환하면 더 쉬움.
+        // 덧셈 연산자를 활용한 문자열 결합은 성능이 떨어짐 -> 변경이 가능한 StringBuilder사용이 더 나음
         StringBuilder sb = new StringBuilder(str);
 
         for(int i=0; i<sb.length(); i++){
