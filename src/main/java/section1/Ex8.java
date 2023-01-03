@@ -8,7 +8,7 @@ public class Ex8 {
     public Boolean solution1(String inputStr){
 
         /*
-        String final class이기 때문에 메모리에 새로 생성 되는 것이지만,
+        String은 immutable 하기때문에 메모리에 새로 생성 되는 것이지만,
         solution() 메소드 내부에서 처리해야 하기때문에
         */
 
