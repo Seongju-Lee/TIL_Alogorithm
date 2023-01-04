@@ -27,6 +27,9 @@
 - 문자열 reverse
   - String을 StringBuilder()로 변경 후에, StringBuilder(String s).reverse()하는 방법이 있다.
 
+- 문자열의 특정 문자 변경
+  - StringBuilder.setCharAt() 사용. <b>Ex2 참고</b>
+  
 - if - else문의 올바른 사용
   - if - else문에서 중복되는 부분은 밖으로 올리고, if 문 하나만 걸어서 추가되는 부분을 적어주면 가독성이 훨씬 올라간다.(<b>Ex11참고</b>)
 
@@ -35,3 +38,18 @@
   
 - 이진수 -> 십진수 변환<b>(Ex12참고)</b>
   - Integer.parseInt(String s, int radix)를 사용. radix값에 2를 주면 이진수를 십진수 int로 변환시켜준다.
+
+
+##### section2
+
+
+- ArrayList는 객체배열이므로, 데이터로는 객체의 주소가 저장된다.<br>
+  즉, ArrayList a = new ArrayList(1);에서 1이라는 int형 값이 저장된 것 같지만 사실은 오토박싱에 의해 new Integer(1)이 들어가게 되는 것이다.
+
+- 소수 구하기
+  - 에라토스테네스 체 알고리즘을 사용하는 것이 가장 효과적.
+  - 구현하는데 있어 제곱근을 사용하여 반복의 횟수를 줄일 수도 있음.
+
+- ArrayList vs Array
+  - ArrayList를 사용하면 mutable하기에 변경에 유리하지만, 속도가 빠른 Array가 적합할 수 있음.
+  - 자세한 내용은 블로그 참고하기.
