@@ -33,6 +33,7 @@ public class Ex6 {
         int n = sc.nextInt();
 
         int[] intArr = new int[n];
+
         for(int i=0; i<n; i++){
 
             intArr[i] = sc.nextInt();
