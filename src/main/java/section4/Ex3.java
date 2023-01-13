@@ -57,14 +57,12 @@ public class Ex3 {
          */
         int li=0, ri=0;
         HashMap<Integer, Integer> map = new HashMap<>();
-        ArrayList<Integer> answer = new ArrayList<>();
 
         while(ri < n){
 
             map.put(inputArr[ri], map.getOrDefault(inputArr[ri], 0)+1);
 
             if((ri-li) + 1 == k){
-                answer.add(map.size());
                 System.out.print(map.size() + " ");
                 if(map.get(inputArr[li]) == 1){
                     map.remove(inputArr[li]);
