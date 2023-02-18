@@ -1,4 +1,4 @@
-package baekjooon.etc;
+package baekjooon.string;
 
 import java.io.*;
 import java.util.*;
