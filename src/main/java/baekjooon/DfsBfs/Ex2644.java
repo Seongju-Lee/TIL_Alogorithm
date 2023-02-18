@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Ex2644 {
 
-
     static List<Integer>[] list;
     static boolean[] visited;
     static int answer=-1;
