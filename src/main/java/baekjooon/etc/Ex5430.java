@@ -44,7 +44,7 @@ class Ex5430{
             answer = Arrays.copyOfRange(answer, (start), end);
         }
 
-        return Arrays.toString(answer).replaceAll(" ", "");
+        return Arrays.toString(answer).replace(" ", "");
 
     }
 
@@ -60,13 +60,17 @@ class Ex5430{
             char[] method = sc.next().toCharArray();
             int len = sc.nextInt();
             String s= sc.next();
-            s = s.replaceAll("\\[", "").replaceAll("]", "");
+            s = s.replaceAll("[]\\[]", "");
             StringBuilder sb = new StringBuilder(s);
             answer.append(solution(method, len, sb)).append('\n');
         }
 
 
         System.out.print(answer);
+
+
+
+
 
     }
 }
