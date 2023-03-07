@@ -11,43 +11,52 @@ public class Ex11723 {
             StringTokenizer st;
 
             int m = Integer.parseInt(br.readLine());
-            Set<Integer> set = new HashSet<>();
             StringBuilder sb = new StringBuilder();
 
+
+            int s=0;
             for(int i=0; i<m; i++) {
                 st = new StringTokenizer(br.readLine(), " ");
 
                 String instruct = st.nextToken();
 
-                if(instruct.equals("all")){
-//                    set.clear();
-                    set.addAll(Arrays.asList(1,2,3,4,5,67,8,9,10,11,12,13,14,15,16,17,18,19,20));
-//                        new HashSet<>(Arrays.asList(1,2,3,4,5,67,8,9,10,11,12,13,14,15,16,17,18,19,20))
+                if(instruct.equals("all")) {
+                    s = (1<<21)-1;
+                } else if(instruct.equals("empty")) {
+                    s = 0;
                 }
-                else if(instruct.equals("empty")) set.clear();
 
                 else {
-
                     int val = Integer.parseInt(st.nextToken());
 
-                    if (instruct.equals("add")) set.add(val);
-                    else if (instruct.equals("remove")) set.remove(val);
-                    else if (instruct.equals("check")) {
-                        if (set.contains(val)) {
-                            sb.append(1).append('\n');
-                        } else {
-                            sb.append(0).append('\n');
-                        }
-                    } else if (instruct.equals("toggle")) {
-                        if (set.contains(val)) {
-                            set.remove(val);
-                        } else {
-                            set.add(val);
-                        }
+                    if(instruct.equals("add")) {
+                        s |= (1<<val);
+                    } else if(instruct.equals("toggle")) {
+                        s ^= (1<<val);
+                    } else if(instruct.equals("remove")) {
+//                        s = ~(s & (1<<val)); tilt는 내부적으로 32bit로 변환하여 리턴하기 때문에 마지막에 연산하면 안됨.
+                        s &= ~((1<<val));
+                    } else if(instruct.equals("check")) {
+                        sb.append( (s & (1<<val) ) != 0 ? 1 : 0).append('\n');
                     }
                 }
+                System.out.println(Integer.toBinaryString(s));
+
             }
 
+//            char[] c = {'a', 'b', 'c', 'd', 'e'};
+//            int n=5;
+//
+//            for(int i=1; i<(1<<n); i++) {
+//                System.out.print(i+"번째: ");
+//
+//                for(int j=0; j<n; j++) {
+//                    if((i & (1<<j)) != 0){
+//                        System.out.print(c[j] + " ");
+//                    }
+//                }
+//                System.out.println();
+//            }
 
             System.out.print(sb);
 
