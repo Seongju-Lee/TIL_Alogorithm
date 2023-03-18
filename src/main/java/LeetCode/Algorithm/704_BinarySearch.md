@@ -1,18 +1,22 @@
 [//]: # (# Intuition)
 <!-- Describe your first thoughts on how to solve this problem. -->
 
-# Approach
+
+# LeetCode
+___
+704. Binary Search
+## Approach
 <!-- Describe your approach to solving the problem. -->
 이진탐색을 이용하여 target 탐색.
 
-# Complexity
+## Complexity
 - Time complexity: O(logN)
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
 
 [//]: # (- Space complexity:)
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
 
-# Code
+## Code
 ```
 import java.util.*;
 
