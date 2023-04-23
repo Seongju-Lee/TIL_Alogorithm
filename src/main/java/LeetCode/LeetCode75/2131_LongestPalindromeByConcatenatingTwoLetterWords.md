@@ -15,7 +15,7 @@ ___
 
 - Time complexity: O(n^n): 재귀 방식   
 시간 복잡도 비교를 위해 재귀 방식 구현.
-- Time complexity: O(n): 그리디 방식.
+- Time complexity: O(n): 그리디 방식.  
 
 [//]: # (<!-- Add your time complexity here, e.g. $$O&#40;n&#41;$$ -->)
 
@@ -84,6 +84,51 @@ class Solution {
         }
 
         return 0; // 위 반복문에서 return 안되면 팰린드롬이 없다는 의미.
+    }
+}
+```
+```
+class Solution {
+
+
+    public int longestPalindrome(String[] words) {
+        
+        Map<String, Integer> map = new HashMap<>();
+
+        int max = 0;
+
+        for(String word : words) {
+            String s = String.valueOf(word.charAt(1))+String.valueOf(word.charAt(0));
+
+            // 현재 word를 뒤집은게 map에 있다면, 4글자의 팰린드롬이 완성.
+            // e.g. 이전에 완성된 4개의 팰린드롬 사이에 4글자가 들어갈 수 있다.
+            if(map.containsKey(s)) {
+                max += 4;
+                if(map.get(s) == 1)
+                    map.remove(s);
+                else
+                    map.put(s, map.get(s)-1);
+
+
+            } else { // 뒤집은 값이 없다면, 언젠가 나올 수 있으니 map에 현재 문자열의 개수를 추가한다.
+                map.put(word, map.getOrDefault(word, 0)+1);
+            }
+            
+        }
+
+        // 동일한 문자 두 개로 이루어진 문자열이 있을 수 있다.
+        // 해당 문자열은 쪼개질 수 없으므로, 하나만 나오면 그 문자열 두 개를 "이 전에 만들어진 팰린드롬 문자열(max)"의
+        // 가운데에 문자 두 개를 삽입하는 것이 고작이다.
+        // 하나만 나오면 추가하고, break;
+        for (String word : map.keySet()) {
+            if(word.charAt(1) == word.charAt(0)) {
+                max += 2;
+                break;
+            }
+
+        }
+
+        return max; // 위 반복문에서 return 안되면 팰린드롬이 없다는 의미.
     }
 }
 ```
