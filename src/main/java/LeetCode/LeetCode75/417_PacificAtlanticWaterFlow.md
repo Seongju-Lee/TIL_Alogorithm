@@ -11,10 +11,12 @@ ___
 [//]: # (<!-- Describe your approach to solving the problem. -->)
 
 
-[//]: # (## Complexity)
+## Complexity
 
-[//]: # ()
-[//]: # (- Time complexity&#40;BFS&#41;: O&#40;n^4&#41; )
+
+- Time complexity(BFS): O(n^3) 
+주어진 heights의 모든 원소를 하나하나 탐색 - O(n^2)  
+원소 하나를 탐색하는 Q가 비어질 때까지 n번 탐색하므로, O(n^3)의 시간복잡도를 가진다.
 
 [//]: # (<!-- Add your time complexity here, e.g. $$O&#40;n&#41;$$ -->)
 
