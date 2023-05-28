@@ -15,6 +15,7 @@ ___
 ## Complexity
 
 - Time complexity: O(n^2)
+- Time complexity: O(n+m) -> n: li , m: ri
 
 [//]: # (<!-- Add your time complexity here, e.g. $$O&#40;n&#41;$$ -->)
 
@@ -121,6 +122,77 @@ class Solution {
         }
 
         return false;
+    }
+}
+```
+
+```
+class Solution {
+    public String minWindow(String s, String t) {
+
+        if(s.length() < t.length()) {
+            return "";
+        }
+
+        // t의 문자정보를 mapping
+        int[] map = new int[128];
+        Set<Character> set = new HashSet<>();
+        for(char c : t.toCharArray()) {
+            map[c] += 1;
+            set.add(c);
+        }
+
+
+        int li=0, ri=0;
+        int len = t.length(); // 찾아야 할 문자 개수
+        int cnt = 0; 
+
+        int minStart = Integer.MAX_VALUE;
+        int minEnd = Integer.MAX_VALUE;
+        int minLen = Integer.MAX_VALUE;
+
+        // s를 순차적으로 돌며, map을 참조하여 최소 길이 탐색
+        while (ri != s.length()) {
+
+            
+            while (cnt != len) { // 찾아야 할 문자정보를 다 찾을 때까지, ri 이동하며 탐색
+
+                if(ri >= s.length()) break; // ri 벗어나면 반복 종료
+                
+                if(map[s.charAt(ri)] > 0) { // t의 포함된 문자라면
+                    cnt++; // 카운트 증가
+                }
+
+                map[s.charAt(ri)] -= 1;
+                ri++;
+            }
+
+            while (cnt == len) { // cnt와 len이 같다면 짧은 문자열을 찾기위해, li를 이동.
+                
+                // 길이 update
+                if((ri-li) < minLen) {
+                    minLen = (ri-li);
+                    minStart = li;
+                    minEnd = ri;
+                }
+
+
+                // li 이동
+                map[s.charAt(li)] += 1;
+                if(map[s.charAt(li)] > 0) {
+                    cnt -= 1;
+                }
+
+
+                li++;
+                
+            }
+
+        }
+
+        if(minLen == Integer.MAX_VALUE) return "";
+        return s.substring(minStart, minStart+minLen);
+        
     }
 }
 ```
