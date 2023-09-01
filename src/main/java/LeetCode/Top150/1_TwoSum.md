@@ -13,7 +13,7 @@ ___
 
 ## Complexity
 
-- Time complexity: O(n^2) : sliding window
+- Time complexity: O(2*n) : sliding window
 - Time complexity: O(n) : mapping
 
 [//]: # (<!-- Add your time complexity here, e.g. $$O&#40;n&#41;$$ -->)
