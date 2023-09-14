@@ -28,8 +28,6 @@ ___
 
 ## Code
 ```
-import java.util.*;
-
 class Solution {
     public int snakesAndLadders(int[][] board) {
         int n = board.length;
@@ -37,7 +35,6 @@ class Solution {
         boolean isEvenRow = true;
         int index = 0;
 
-        // Flatten the board into a 1D array for easier traversal
         for (int i = n - 1; i >= 0; i--) {
             if (isEvenRow) {
                 for (int j = 0; j < n; j++) {
