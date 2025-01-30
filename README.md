@@ -2,13 +2,11 @@
 
 ---
 
-매일 알고리즘 문제풀이를 진행합니다.
+#### 소개  
+매일 알고리즘 문제풀이를 진행합니다. (leetcode)
 
+<br>
 
-##### lang: Java
+#### lang
+Java, kotlin
 
----
-
-#### 문제
-- [LeetCode](./src/main/java/LeetCode)
-- [BOJ](./src/main/java/baekjooon)
